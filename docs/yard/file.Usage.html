@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: Usage
+  
+    &mdash; Documentation by YARD 0.9.36
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Usage";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: Usage</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'><h1><a href="#usage" aria-hidden="true" class="anchor" id="usage"></a>Usage</h1>
+<h2><a href="#cli" aria-hidden="true" class="anchor" id="cli"></a>CLI</h2>
+<h3><a href="#general-and-help" aria-hidden="true" class="anchor" id="general-and-help"></a>General and help</h3>
+<p>As binary name you can use both <code>adassault</code> or the shorter <code>ada</code>.</p>
+<pre class="code plaintext"><code class="plaintext">$ ada --help
+NAME
+    ada - ADAsault desc
+
+
+SYNOPSIS
+    ada [global options] command [command options] [arguments...]
+
+
+VERSION
+    0.0.1
+
+
+
+GLOBAL OPTIONS
+    --[no-]color - Switch colorized output (default: enabled)
+    --[no-]debug - Display options
+    --help       - Show this message
+    --version    - Display the program version
+
+
+
+COMMANDS
+    dns  - DNS related commands
+    help - Shows a list of commands or help for one command
+</code></pre>
+<p>The <code>help</code> command or <code>--help</code> option can be used to get more details on a command or sub-command:</p>
+<pre class="code ruby"><code class="ruby">➜ ada help dns
+<span style="color:#036;font-weight:bold">NAME</span>
+    dns - <span style="color:#036;font-weight:bold">DNS</span> related commands
+
+<span style="color:#036;font-weight:bold">SYNOPSIS</span>
+
+    ada [global options] dns [command options] entry_add
+
+    ada [global options] dns [command options] entry_delete
+
+    ada [global options] dns [command options] entry_update
+
+    ada [global options] dns [command options] find_dcs [-d arg|--domain arg] [-s arg|--nameserver arg|--name-server arg]
+
+
+
+
+<span style="color:#036;font-weight:bold">COMMAND</span> <span style="color:#036;font-weight:bold">OPTIONS</span>
+    -d, --domain=arg                    - <span style="color:#036;font-weight:bold">Active</span> <span style="color:#036;font-weight:bold">Directory</span> domain. (<span style="color:#606">default</span>: none)
+    -s, --nameserver, --name-server=arg - <span style="color:#036;font-weight:bold">The</span> <span style="color:#036;font-weight:bold">IP</span> address of the domain <span style="color:#036;font-weight:bold">DNS</span> server. If <span style="color:#080;font-weight:bold">not</span> provided uses your system <span style="color:#036;font-weight:bold">DNS</span>. (<span style="color:#606">default</span>: none)
+
+
+
+
+<span style="color:#036;font-weight:bold">COMMANDS</span>
+    entry_add    - <span style="color:#036;font-weight:bold">TODO</span>
+    entry_delete - <span style="color:#036;font-weight:bold">TODO</span>
+    entry_update - <span style="color:#036;font-weight:bold">TODO</span>
+    find_dcs     - <span style="color:#036;font-weight:bold">Spot</span> all domain controllers <span style="color:#080;font-weight:bold">in</span> a <span style="color:#036;font-weight:bold">Microsoft</span> <span style="color:#036;font-weight:bold">Active</span> <span style="color:#036;font-weight:bold">Directory</span> environment
+
+➜ ada help dns find_dcs
+<span style="color:#036;font-weight:bold">NAME</span>
+    find_dcs - <span style="color:#036;font-weight:bold">Spot</span> all domain controllers <span style="color:#080;font-weight:bold">in</span> a <span style="color:#036;font-weight:bold">Microsoft</span> <span style="color:#036;font-weight:bold">Active</span> <span style="color:#036;font-weight:bold">Directory</span> environment
+
+<span style="color:#036;font-weight:bold">SYNOPSIS</span>
+
+    ada [global options] dns find_dcs [command options]
+
+
+
+
+<span style="color:#036;font-weight:bold">COMMAND</span> <span style="color:#036;font-weight:bold">OPTIONS</span>
+    -d, --domain=arg                    - <span style="color:#036;font-weight:bold">Active</span> <span style="color:#036;font-weight:bold">Directory</span> domain. (<span style="color:#606">default</span>: none)
+    -s, --nameserver, --name-server=arg - <span style="color:#036;font-weight:bold">The</span> <span style="color:#036;font-weight:bold">IP</span> address of the domain <span style="color:#036;font-weight:bold">DNS</span> server. If <span style="color:#080;font-weight:bold">not</span> provided uses your system <span style="color:#036;font-weight:bold">DNS</span>. (<span style="color:#606">default</span>: none)
+</code></pre>
+<h3><a href="#examples---short-and-long-syntax" aria-hidden="true" class="anchor" id="examples---short-and-long-syntax"></a>Examples - Short and long syntax</h3>
+<p>Short syntax:</p>
+<pre class="code plaintext"><code class="plaintext">$ ada dns find_dcs -d THM.local -s 10.10.25.54
+ADBASICS (adbasics.thm.local) - 10.10.25.54
+</code></pre>
+<p>Long syntax:</p>
+<pre class="code plaintext"><code class="plaintext">$ ada dns find_dcs --domain=THM.local --nameserver=10.10.25.54
+ADBASICS (adbasics.thm.local) - 10.10.25.54
+</code></pre>
+<h2><a href="#library" aria-hidden="true" class="anchor" id="library"></a>Library</h2>
+<p>See <a href="https://noraj.github.io/ADAssault/yard/ADAssault/">ADAssault</a>.</p>
+<h3><a href="#examples" aria-hidden="true" class="anchor" id="examples"></a>Examples</h3>
+<pre class="code ruby"><code class="ruby">require <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">adassault</span><span style="color:#710">'</span></span>
+
+dcd = <span style="color:#036;font-weight:bold">ADAssault</span>::<span style="color:#036;font-weight:bold">DNS</span>::<span style="color:#036;font-weight:bold">FindDCs</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">THM.local</span><span style="color:#710">'</span></span>, <span style="color:#606">nameserver</span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">10.10.25.54</span><span style="color:#710">'</span></span>])
+
+dcd.dc_fqdn
+<span style="color:#777"># =&gt; [&quot;adbasics.thm.local&quot;]</span>
+
+dcd.dc_ip
+<span style="color:#777"># =&gt; [&quot;10.10.25.54&quot;]</span>
+
+dcd.dc_name
+<span style="color:#777"># =&gt; [&quot;adbasics&quot;]</span>
+
+dcd.dcs
+<span style="color:#777"># =&gt; {&quot;ADBASICS&quot;=&gt;{:fqdn=&gt;&quot;adbasics.thm.local&quot;, :ips=&gt;[&quot;10.10.25.54&quot;]}}</span>
+</code></pre>
+</div></div>
+
+      <div id="footer">
+  Generated on Sun Jun 23 19:14:56 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-3.3.0).
+</div>
+
+    </div>
+  </body>
+</html>

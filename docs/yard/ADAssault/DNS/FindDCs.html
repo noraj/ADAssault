@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: ADAssault::DNS::FindDCs
+  
+    &mdash; Documentation by YARD 0.9.36
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "ADAssault::DNS::FindDCs";
+  relpath = '../../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../../_index.html">Index (F)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../ADAssault.html" title="ADAssault (module)">ADAssault</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../DNS.html" title="ADAssault::DNS (module)">DNS</a></span></span>
+     &raquo; 
+    <span class="title">FindDCs</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: ADAssault::DNS::FindDCs
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ADAssault::DNS::FindDCs</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/adassault/dns/find_dcs.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Spot all domain controllers in a Microsoft Active Directory environment</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dcs-instance_method" title="#dcs (instance method)">#<strong>dcs</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Hash containing all DCs.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dc_fqdn-instance_method" title="#dc_fqdn (instance method)">#<strong>dc_fqdn</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get DC(s) FQDN directly from the DNS server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dc_ip-instance_method" title="#dc_ip (instance method)">#<strong>dc_ip</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get DC(s) IP address name directly from the DNS server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dc_name-instance_method" title="#dc_name (instance method)">#<strong>dc_name</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Get DC(s) computer name directly from the DNS server.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#display-instance_method" title="#display (instance method)">#<strong>display</strong>  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output listing all DCs with their short name, FQDN and IP addresses.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public deprecated">
+  <span class="summary_signature">
+    
+      <a href="#display_old-instance_method" title="#display_old (instance method)">#<strong>display_old</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  <span class="deprecated note title">deprecated</span>
+  
+
+  
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Use <span class='object_link'><a href="#display-instance_method" title="ADAssault::DNS::FindDCs#display (method)">#display</a></span> instead.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fetch_dcs-instance_method" title="#fetch_dcs (instance method)">#<strong>fetch_dcs</strong>  &#x21d2; Hash </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates a hash containing all DCs.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(ad_domain, dns_opts = nil)  &#x21d2; FindDCs </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Create the FindDCs object.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(ad_domain, dns_opts = nil)  &#x21d2; <tt><span class='object_link'><a href="" title="ADAssault::DNS::FindDCs (class)">FindDCs</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Create the FindDCs object.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>dcd = <span style="color:#036;font-weight:bold">ADAssault</span>::<span style="color:#036;font-weight:bold">DNS</span>::<span style="color:#036;font-weight:bold">FindDCs</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">THM.local</span><span style="color:#710">'</span></span>, <span style="color:#606">nameserver</span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">10.10.25.54</span><span style="color:#710">'</span></span>])
+dcd = <span style="color:#036;font-weight:bold">ADAssault</span>::<span style="color:#036;font-weight:bold">DNS</span>::<span style="color:#036;font-weight:bold">FindDCs</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">spookysec.local</span><span style="color:#710">'</span></span>, <span style="color:#606">nameserver</span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">10.10.197.59</span><span style="color:#710">'</span></span>])
+dcd = <span style="color:#036;font-weight:bold">ADAssault</span>::<span style="color:#036;font-weight:bold">DNS</span>::<span style="color:#036;font-weight:bold">FindDCs</span>.new(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">za.tryhackme.com</span><span style="color:#710">'</span></span>, <span style="color:#606">nameserver</span>: [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">10.200.28.101</span><span style="color:#710">'</span></span>])</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>ad_domain</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the Active Directory domain to work on.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>dns_opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>options for the DNS resolver. See <a href="https://ruby-doc.org/3.3.0/stdlibs/resolv/Resolv/DNS.html#method-c-new">Resolv::DNS.new</a>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>dns_opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:nameserver</span>
+          <span class="type">(<tt>Array|String</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>the DNS server to contact</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/find_dcs.rb', line 26</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">initialize</span>(ad_domain, dns_opts = <span style="color:#069">nil</span>)
+  <span style="color:#33B">@ad_domain</span> = ad_domain
+  <span style="color:#33B">@dns_opts</span> = dns_opts
+  <span style="color:#33B">@dcs</span> = fetch_dcs
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="dcs-instance_method">
+  
+    #<strong>dcs</strong>  &#x21d2; <tt>Hash</tt>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Hash containing all DCs.<br />
+Cached result of <span class='object_link'><a href="#fetch_dcs-instance_method" title="ADAssault::DNS::FindDCs#fetch_dcs (method)">#fetch_dcs</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>hash containing all DCs</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/find_dcs.rb', line 16</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">dcs</span>
+  <span style="color:#33B">@dcs</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="dc_fqdn-instance_method">
+  
+    #<strong>dc_fqdn</strong>  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get DC(s) FQDN directly from the DNS server.<br />
+Not cached in <code>@dcs</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>dcd.dc_fqdn
+<span style="color:#777"># =&gt; [&quot;THMDC.za.tryhackme.com&quot;]</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the list of FQDN of all DCs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/how-domain-controllers-are-located" target="_parent" title="https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/how-domain-controllers-are-located">https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/how-domain-controllers-are-located</a></li>
+    
+  </ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/find_dcs.rb', line 40</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">dc_fqdn</span>
+  <span style="color:#036;font-weight:bold">Resolv</span>::<span style="color:#036;font-weight:bold">DNS</span>.open(<span style="color:#33B">@dns_opts</span>) <span style="color:#080;font-weight:bold">do</span> |dns|
+    <span style="color:#777"># _kerberos._tcp, _kpasswd._tcp, _ldap._tcp works too but are not MS only</span>
+    <span style="color:#777"># _kerberos._tcp.dc._msdcs</span>
+    <span style="color:#777"># _ldap._tcp.pdc._msdcs, _gc._tcp</span>
+    <span style="color:#777"># _udp variants</span>
+    ress = dns.getresources <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">_ldap._tcp.dc._msdcs.</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#33B">@ad_domain</span><span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>, <span style="color:#036;font-weight:bold">Resolv</span>::<span style="color:#036;font-weight:bold">DNS</span>::<span style="color:#036;font-weight:bold">Resource</span>::<span style="color:#036;font-weight:bold">IN</span>::<span style="color:#036;font-weight:bold">ANY</span>
+    ress.map { |x| x.target.to_s }
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dc_ip-instance_method">
+  
+    #<strong>dc_ip</strong>  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get DC(s) IP address name directly from the DNS server.<br />
+Not cached in <code>@dcs</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>dcd.dc_ip
+<span style="color:#777"># =&gt; [&quot;10.10.10.101&quot;, &quot;10.200.28.101&quot;]</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the list of IP address of all DCs</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/find_dcs.rb', line 70</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">dc_ip</span>
+  <span style="color:#036;font-weight:bold">Resolv</span>::<span style="color:#036;font-weight:bold">DNS</span>.open(<span style="color:#33B">@dns_opts</span>) <span style="color:#080;font-weight:bold">do</span> |dns|
+    ress = dns.getresources <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">gc._msdcs.</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#33B">@ad_domain</span><span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>, <span style="color:#036;font-weight:bold">Resolv</span>::<span style="color:#036;font-weight:bold">DNS</span>::<span style="color:#036;font-weight:bold">Resource</span>::<span style="color:#036;font-weight:bold">IN</span>::<span style="color:#036;font-weight:bold">A</span>
+    ress.map { |x| x.address.to_s }
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dc_name-instance_method">
+  
+    #<strong>dc_name</strong>  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Get DC(s) computer name directly from the DNS server.<br />
+Not cached in <code>@dcs</code>.<br />
+Call <span class='object_link'><a href="#dc_fqdn-instance_method" title="ADAssault::DNS::FindDCs#dc_fqdn (method)">#dc_fqdn</a></span> and extract the name from it (substract the domain).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>dcd.dc_name
+<span style="color:#777"># =&gt; [&quot;THMDC&quot;]</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the list of computer name of all DCs</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/find_dcs.rb', line 59</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">dc_name</span>
+  dc_fqdn.map { |x| x[...-<span style="color:#33B">@ad_domain</span>.size - <span style="color:#00D">1</span>] }
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="display-instance_method">
+  
+    #<strong>display</strong>  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display a CLI-friendly output listing all DCs with their short name, FQDN and IP addresses.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+103
+104
+105
+106
+107
+108</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/find_dcs.rb', line 103</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">display</span>
+  dcs.each <span style="color:#080;font-weight:bold">do</span> |short_name, dc|
+    puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Paint</span>[short_name, <span style="color:#A60">:bold</span>,
+                  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">dark turquoise</span><span style="color:#710">'</span></span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> (</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Paint</span>[dc[<span style="color:#A60">:fqdn</span>], <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">cyan</span><span style="color:#710">'</span></span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">) - </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Paint</span>[dc[<span style="color:#A60">:ips</span>].join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">, </span><span style="color:#710">'</span></span>), <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">aquamarine</span><span style="color:#710">'</span></span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="display_old-instance_method">
+  
+    #<strong>display_old</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <span class='object_link'><a href="#display-instance_method" title="ADAssault::DNS::FindDCs#display (method)">#display</a></span> instead.</p>
+</div></div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/find_dcs.rb', line 113</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">display_old</span>
+  puts <span style="color:#036;font-weight:bold">Paint</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">DC(s) name</span><span style="color:#710">'</span></span>, <span style="color:#A60">:underline</span>, <span style="color:#A60">:bold</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">dark turquoise</span><span style="color:#710">'</span></span>]
+  dc_name.each <span style="color:#080;font-weight:bold">do</span> |name|
+    puts <span style="color:#036;font-weight:bold">Paint</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">🔍 </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>name<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>]
+  <span style="color:#080;font-weight:bold">end</span>
+  puts <span style="color:#036;font-weight:bold">Paint</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#b0b">\n</span><span style="color:#D20">DC(s) FQDN</span><span style="color:#710">&quot;</span></span>, <span style="color:#A60">:underline</span>, <span style="color:#A60">:bold</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">cyan</span><span style="color:#710">'</span></span>]
+  dc_fqdn.each <span style="color:#080;font-weight:bold">do</span> |fqdn|
+    puts <span style="color:#036;font-weight:bold">Paint</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">🔍 </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>fqdn<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>]
+  <span style="color:#080;font-weight:bold">end</span>
+  puts <span style="color:#036;font-weight:bold">Paint</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#b0b">\n</span><span style="color:#D20">DC(s) IP address</span><span style="color:#710">&quot;</span></span>, <span style="color:#A60">:underline</span>, <span style="color:#A60">:bold</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">aquamarine</span><span style="color:#710">'</span></span>]
+  dc_ip.each <span style="color:#080;font-weight:bold">do</span> |ip|
+    puts <span style="color:#036;font-weight:bold">Paint</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">🔍 </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>ip<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>]
+  <span style="color:#080;font-weight:bold">end</span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fetch_dcs-instance_method">
+  
+    #<strong>fetch_dcs</strong>  &#x21d2; <tt>Hash</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Generates a hash containing all DCs.<br />
+The key is the short name, the value is a hash with two keys: the FQDN and the IPs addresses.<br />
+This method is called while instantiating the class and teh result stored in <code>@dcs</code> attribute.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>hash containing all DCs</p>
+</div>
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.1</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/find_dcs.rb', line 84</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">fetch_dcs</span>
+  h = {}
+  dc_fqdn.each <span style="color:#080;font-weight:bold">do</span> |fqdn|
+    <span style="color:#036;font-weight:bold">Resolv</span>::<span style="color:#036;font-weight:bold">DNS</span>.open(<span style="color:#33B">@dns_opts</span>) <span style="color:#080;font-weight:bold">do</span> |dns|
+      ress = dns.getresources fqdn, <span style="color:#036;font-weight:bold">Resolv</span>::<span style="color:#036;font-weight:bold">DNS</span>::<span style="color:#036;font-weight:bold">Resource</span>::<span style="color:#036;font-weight:bold">IN</span>::<span style="color:#036;font-weight:bold">A</span>
+      short_name = fqdn[...-<span style="color:#33B">@ad_domain</span>.size - <span style="color:#00D">1</span>].upcase
+      h[short_name] = {
+        <span style="color:#606">fqdn</span>: fqdn,
+        <span style="color:#606">ips</span>: ress.map { |x| x.address.to_s }
+      }
+    <span style="color:#080;font-weight:bold">end</span>
+  <span style="color:#080;font-weight:bold">end</span>
+  h
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sun Jun 23 19:14:56 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-3.3.0).
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: Commands
+  
+    &mdash; Documentation by YARD 0.9.36
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "Commands";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: Commands</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'><h1><a href="#commands" aria-hidden="true" class="anchor" id="commands"></a>Commands</h1>
+<p>Top-level commands correspond to the protocol used by the sub-commands.</p>
+<p>Example: in <code>ada dns find_dcs</code> the <code>find_dcs</code> sub-command works on the DNS protocol.</p>
+<h2><a href="#dns" aria-hidden="true" class="anchor" id="dns"></a>DNS</h2>
+<h3><a href="#find_dcs" aria-hidden="true" class="anchor" id="find_dcs"></a>find_dcs</h3>
+<p>Spot all domain controllers in a Microsoft Active Directory environment. Find computer name, FQDN, and IP address(es) of all DCs.</p>
+<p>Typically, when a pentester is plugged into the internal network, one can find clues about the domain from the DHCP answer (e.g. in <code>/etc/resolv.conf</code>). In most cases, from the DHCP anwser, we get the domain name and two DNS servers IP address. As in an Active Directory environment, in 99% of cases, the DNS Server is a role deployed on a Domain Controller (DC), it means we already know where to find the DCs. On small infrasttructure there is often only 2 DCs (1 main and 1 backup), but on medium or large infrastructure there are often more of them (4, 6 or even more) but the DHCP answer is often limited two 2 addresses. That's why the <code>find_dcs</code> command is useful, to obtain all of them from the domain DNS zone.</p>
+<pre class="code plaintext"><code class="plaintext">$ ada dns find_dcs -d THM.local
+ADBASICS (adbasics.thm.local) - 10.10.25.54
+</code></pre>
+<pre class="code plaintext"><code class="plaintext">$ ada dns find_dcs --domain=THM.local --nameserver=10.10.25.54
+ADBASICS (adbasics.thm.local) - 10.10.25.54
+</code></pre>
+</div></div>
+
+      <div id="footer">
+  Generated on Sun Jun 23 19:14:56 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-3.3.0).
+</div>
+
+    </div>
+  </body>
+</html>
