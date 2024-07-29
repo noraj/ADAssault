@@ -11,6 +11,11 @@ group :runtime, :cli do
   gem 'paint', '~> 2.3' # for colorized ouput
 end
 
+# Needed for runtime (all cases: CLI & library)
+group :runtime, :all do
+  gem 'dnsruby', '~> 1.72', '>= 1.72.1' # for DNS update (RFC 2136)
+end
+
 # Needed to install dependencies
 group :development, :install do
   gem 'bundler', '~> 2.5'

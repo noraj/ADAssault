@@ -53,7 +53,7 @@ bundle exec yard doc
 Create an annotated git tag:
 
 ```bash
-git tag -a vx.x.x
+git tag -a x.x.x
 ```
 
 Push the changes including the tags:

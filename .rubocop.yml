@@ -8,6 +8,8 @@ AllCops:
 Layout/HashAlignment:
   Exclude:
     - '*.gemspec'
+Layout/LineLength:
+  AllowedPatterns: ['\A\s*#'] # Ignore comments, there is no way to configure commonmarker for yard to disable non commonmark compliant linebreak injection, so inserting newline breaks the paragraph
 Metrics/BlockLength:
   Exclude:
     - 'lib/adassault/cli/*.rb' # it's necessary by gli design
