@@ -5,17 +5,22 @@ AllCops:
   TargetRubyVersion: 3.0
   NewCops: enable
   SuggestExtensions: false
+# ~~~ Layout ~~~
 Layout/HashAlignment:
   Exclude:
     - '*.gemspec'
 Layout/LineLength:
   AllowedPatterns: ['\A\s*#'] # Ignore comments, there is no way to configure commonmarker for yard to disable non commonmark compliant linebreak injection, so inserting newline breaks the paragraph
+# ~~~ Metrics ~~~
 Metrics/BlockLength:
   Exclude:
     - 'lib/adassault/cli/*.rb' # it's necessary by gli design
+# ~~~ Style ~~~
 Style/Documentation:
   Exclude:
     # https://github.com/rubocop/rubocop/issues/13014
     # false positive edge case issue
     # already documented in lib/adassault/cli.rb
     - 'lib/adassault/cli/*.rb'
+Gemspec/AddRuntimeDependency: # this is style
+  Enabled: false # https://github.com/rubocop/rubocop/pull/13030#discussion_r1674791776
