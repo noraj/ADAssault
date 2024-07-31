@@ -21,6 +21,6 @@ Style/Documentation:
     # https://github.com/rubocop/rubocop/issues/13014
     # false positive edge case issue
     # already documented in lib/adassault/cli.rb
-    - 'lib/adassault/cli/*.rb'
+    - 'lib/adassault/cli/**/*.rb'
 Gemspec/AddRuntimeDependency: # this is style
   Enabled: false # https://github.com/rubocop/rubocop/pull/13030#discussion_r1674791776
