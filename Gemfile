@@ -14,6 +14,11 @@ end
 # Needed for runtime (all cases: CLI & library)
 group :runtime, :all do
   gem 'dnsruby', '~> 1.72', '>= 1.72.1' # for DNS update (RFC 2136)
+  # disable warning, waiting for a new version to be released https://github.com/alexdalitz/dnsruby/pull/198/files
+  require 'dnsruby'
+  install_if -> { Gem::Version.new(Dnsruby::VERSION) < Gem::Version.new('1.72.3') } do
+    gem 'base64', '~> 0.2.0'
+  end
 end
 
 # Needed to install dependencies
