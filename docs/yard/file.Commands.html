@@ -61,19 +61,49 @@
 <p>Top-level commands correspond to the protocol used by the sub-commands.</p>
 <p>Example: in <code>ada dns find_dcs</code> the <code>find_dcs</code> sub-command works on the DNS protocol.</p>
 <h2><a href="#dns" aria-hidden="true" class="anchor" id="dns"></a>DNS</h2>
-<h3><a href="#find_dcs" aria-hidden="true" class="anchor" id="find_dcs"></a>find_dcs</h3>
-<p>Spot all domain controllers in a Microsoft Active Directory environment. Find computer name, FQDN, and IP address(es) of all DCs.</p>
+<h3><a href="#find_dcs-unauthenticated" aria-hidden="true" class="anchor" id="find_dcs-unauthenticated"></a>find_dcs (unauthenticated)</h3>
+<p>Spot all domain controllers in a Microsoft Active Directory environment without any authentication required (other than a network access). Find computer name, FQDN, and IP address(es) of all DCs.</p>
 <p>Typically, when a pentester is plugged into the internal network, one can find clues about the domain from the DHCP answer (e.g. in <code>/etc/resolv.conf</code>). In most cases, from the DHCP anwser, we get the domain name and two DNS servers IP address. As in an Active Directory environment, in 99% of cases, the DNS Server is a role deployed on a Domain Controller (DC), it means we already know where to find the DCs. On small infrasttructure there is often only 2 DCs (1 main and 1 backup), but on medium or large infrastructure there are often more of them (4, 6 or even more) but the DHCP answer is often limited two 2 addresses. That's why the <code>find_dcs</code> command is useful, to obtain all of them from the domain DNS zone.</p>
+<p>Finding all DCs for a specified domain:</p>
 <pre class="code plaintext"><code class="plaintext">$ ada dns find_dcs -d THM.local
 ADBASICS (adbasics.thm.local) - 10.10.25.54
 </code></pre>
+<p>Finding all DCs for a specified domain and using the given DNS server rather than the system one:</p>
 <pre class="code plaintext"><code class="plaintext">$ ada dns find_dcs --domain=THM.local --nameserver=10.10.25.54
 ADBASICS (adbasics.thm.local) - 10.10.25.54
 </code></pre>
+<h3><a href="#duzdu-unauthenticated" aria-hidden="true" class="anchor" id="duzdu-unauthenticated"></a>duzdu (unauthenticated)</h3>
+<p><strong>DUZDU</strong> means <em>DNS unsecure zone dynamic update</em>, it's a technique allowing to attack a misconfigured MS DNS zone, where one can abuse unsecure dynamic updates to perform MiTM attacks in a very stealth way. Targets are Windows servers with the DNS role where the <code>DSPROPERTY_ZONE_ALLOW_UPDATE</code> is misconfigured. For more details and references, see <a href="(https://noraj.github.io/ADAssault/yard/ADAssault/DNS/DUZDU)">DUZDU class documentation</a>.</p>
+<p>Are there tools doing that already existing? Mostly no.</p>
+<p><a href="https://github.com/almandin/krbjack">KRBJack</a> for example, is more advanced and automate the MiTM attack with AP_REQ hijacking to allow compromission of systems using Kerberos.<br />
+There is a check mode (<code>krbjack check</code>) that is similar to <code>ada dns duzdu check</code> and a run mode (<code>krbjack run</code>) that performs the MiTM attacks automatically. You could omit <code>--executable</code> to avoid remote code execution, omit <code>--ports</code> to disable tcp forwarding, add <code>--no-poison</code> to prevent DNS poisoning, etc.<br />
+But what if the tool crashes in the middle of the attack or you run out of battery and your compure shuts down? Then KRBJack can't have done its cleaning and you don't know what the entries created were or how to remove them.<br />
+With the DUZDU module of AD Assault, you can understand what's going on and control perfectly what entreis you create or delete. This fine-tuning of the data allows for a better OpSec and stealth, for example for Red Teamers.</p>
+<p><a href="https://github.com/CravateRouge/bloodyAD">bloodyAD</a> also allows some kind of addition and removal of DNS entries via the <code>bloodyAD add dnsRecord</code> and <code>bloodyAD remove dnsRecord</code> sub-commands, but:</p>
+<ul>
+<li>It's done over AD LDAP, not on DNS directly.</li>
+<li>It requires authentication.</li>
+<li>It's limited to create new entries binded to your account, you can't modify or remove entries from other users of existing machines, so it's nearly useless for MiTM attacks since you won't be able to spoof servers' DNS records.</li>
+</ul>
+<p>It's easy to check whether the target is vulnerable or not.</p>
+<pre class="code plaintext"><code class="plaintext"># on vulnerable target
+$ ada dns --domain=THM.local duzdu check
+✅ check was executed successfully
+
+# on secure target
+$ ada dns --domain=THM.local duzdu check
+Update failed: Dnsruby::Refusedcc
+❌ check was unsuccessful
+</code></pre>
+<p>To be sure which DNS server to modify it can be specified using <code>--nameserver</code>. Adding a record <code>srvdatabase.THM.local</code> pointing to <code>10.10.24.112</code> is straightforward too.</p>
+<pre class="code plaintext"><code class="plaintext">$ ada dns --domain=THM.local --nameserver=10.10.64.16 duzdu add &#39;srvdatabase&#39; &#39;10.10.24.112&#39;
+✅ add was executed successfully
+</code></pre>
+<p>It's all the same logic for other actions: <code>delete</code>, <code>replace</code> or <code>get</code> (execute <code>ada help dns duzdu</code> to get an overview). As a reminder, warnings and underneath behaviors are documented on the <a href="(https://noraj.github.io/ADAssault/yard/ADAssault/DNS/DUZDU)">class documentation</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Jul 29 20:39:53 2024 by
+  Generated on Wed Jul 31 20:00:15 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.3.0).
 </div>

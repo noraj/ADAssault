@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    adassault (0.0.1)
+    adassault (0.0.2)
       dnsruby (~> 1.72, >= 1.72.1)
       gli (~> 2.21)
       paint (~> 2.3)

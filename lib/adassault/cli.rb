@@ -14,6 +14,7 @@ module ADAssault
     extend GLI::App
 
     program_desc 'ADAsault desc'
+    arguments :strict
     subcommand_option_handling :normal
     sort_help :alpha # :manually
     version ADAssault::VERSION

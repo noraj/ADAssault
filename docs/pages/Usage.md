@@ -17,7 +17,7 @@ SYNOPSIS
 
 
 VERSION
-    0.0.1
+    0.0.2
 
 
 
@@ -43,29 +43,23 @@ NAME
 
 SYNOPSIS
 
-    ada [global options] dns [command options] entry_add
+    ada [global options] dns [command options] duzdu
 
-    ada [global options] dns [command options] entry_delete
-
-    ada [global options] dns [command options] entry_update
-
-    ada [global options] dns [command options] find_dcs [-d arg|--domain arg] [-s arg|--nameserver arg|--name-server arg]
+    ada [global options] dns [command options] find_dcs
 
 
 
 
 COMMAND OPTIONS
-    -d, --domain=arg                    - Active Directory domain. (default: none)
-    -s, --nameserver, --name-server=arg - The IP address of the domain DNS server. If not provided uses your system DNS. (default: none)
+    -d, --domain=DOMAIN                        - Active Directory domain. (required, default: none)
+    -s, --nameserver, --name-server=IP_ADDRESS - The IP address of the domain DNS server. If not provided uses your system DNS. (default: none)
 
 
 
 
 COMMANDS
-    entry_add    - TODO
-    entry_delete - TODO
-    entry_update - TODO
-    find_dcs     - Spot all domain controllers in a Microsoft Active Directory environment
+    duzdu    - DNS unsecure zone dynamic update (DUZDU)
+    find_dcs - Spot all domain controllers in a Microsoft Active Directory environment
 
 ➜ ada help dns find_dcs
 NAME
@@ -73,14 +67,7 @@ NAME
 
 SYNOPSIS
 
-    ada [global options] dns find_dcs [command options]
-
-
-
-
-COMMAND OPTIONS
-    -d, --domain=arg                    - Active Directory domain. (default: none)
-    -s, --nameserver, --name-server=arg - The IP address of the domain DNS server. If not provided uses your system DNS. (default: none)
+    ada [global options] dns find_dcs
 ```
 
 ### Examples - Short and long syntax
@@ -88,16 +75,18 @@ COMMAND OPTIONS
 Short syntax:
 
 ```plaintext
-$ ada dns find_dcs -d THM.local -s 10.10.25.54
+$ ada dns -d THM.local -s 10.10.25.54 find_dcs
 ADBASICS (adbasics.thm.local) - 10.10.25.54
 ```
 
 Long syntax:
 
 ```plaintext
-$ ada dns find_dcs --domain=THM.local --nameserver=10.10.25.54
+$ ada dns --domain=THM.local --nameserver=10.10.25.54 find_dcs
 ADBASICS (adbasics.thm.local) - 10.10.25.54
 ```
+
+More examples and explanations on the [Commands](https://noraj.github.io/ADAssault/yard/file.Commands.html) documentation page.
 
 ## Library
 

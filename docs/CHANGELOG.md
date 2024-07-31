@@ -4,7 +4,14 @@
 
 ## [0.0.2]
 
+Library:
+
 - Add `DNS::DUZDU` class, DNS unsecure zone dynamic update
+
+CLI:
+
+- Add `ada dns duzdu` sub-command, DNS unsecure zone dynamic update
+  - actions: add, check, delete, get, replace
 
 ## [0.0.1]
 

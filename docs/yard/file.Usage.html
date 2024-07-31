@@ -71,7 +71,7 @@ SYNOPSIS
 
 
 VERSION
-    0.0.1
+    0.0.2
 
 
 
@@ -94,29 +94,23 @@ COMMANDS
 
 <span style="color:#036;font-weight:bold">SYNOPSIS</span>
 
-    ada [global options] dns [command options] entry_add
+    ada [global options] dns [command options] duzdu
 
-    ada [global options] dns [command options] entry_delete
-
-    ada [global options] dns [command options] entry_update
-
-    ada [global options] dns [command options] find_dcs [-d arg|--domain arg] [-s arg|--nameserver arg|--name-server arg]
+    ada [global options] dns [command options] find_dcs
 
 
 
 
 <span style="color:#036;font-weight:bold">COMMAND</span> <span style="color:#036;font-weight:bold">OPTIONS</span>
-    -d, --domain=arg                    - <span style="color:#036;font-weight:bold">Active</span> <span style="color:#036;font-weight:bold">Directory</span> domain. (<span style="color:#606">default</span>: none)
-    -s, --nameserver, --name-server=arg - <span style="color:#036;font-weight:bold">The</span> <span style="color:#036;font-weight:bold">IP</span> address of the domain <span style="color:#036;font-weight:bold">DNS</span> server. If <span style="color:#080;font-weight:bold">not</span> provided uses your system <span style="color:#036;font-weight:bold">DNS</span>. (<span style="color:#606">default</span>: none)
+    -d, --domain=<span style="color:#036;font-weight:bold">DOMAIN</span>                        - <span style="color:#036;font-weight:bold">Active</span> <span style="color:#036;font-weight:bold">Directory</span> domain. (required, <span style="color:#606">default</span>: none)
+    -s, --nameserver, --name-server=<span style="color:#036;font-weight:bold">IP_ADDRESS</span> - <span style="color:#036;font-weight:bold">The</span> <span style="color:#036;font-weight:bold">IP</span> address of the domain <span style="color:#036;font-weight:bold">DNS</span> server. If <span style="color:#080;font-weight:bold">not</span> provided uses your system <span style="color:#036;font-weight:bold">DNS</span>. (<span style="color:#606">default</span>: none)
 
 
 
 
 <span style="color:#036;font-weight:bold">COMMANDS</span>
-    entry_add    - <span style="color:#036;font-weight:bold">TODO</span>
-    entry_delete - <span style="color:#036;font-weight:bold">TODO</span>
-    entry_update - <span style="color:#036;font-weight:bold">TODO</span>
-    find_dcs     - <span style="color:#036;font-weight:bold">Spot</span> all domain controllers <span style="color:#080;font-weight:bold">in</span> a <span style="color:#036;font-weight:bold">Microsoft</span> <span style="color:#036;font-weight:bold">Active</span> <span style="color:#036;font-weight:bold">Directory</span> environment
+    duzdu    - <span style="color:#036;font-weight:bold">DNS</span> unsecure zone dynamic update (<span style="color:#036;font-weight:bold">DUZDU</span>)
+    find_dcs - <span style="color:#036;font-weight:bold">Spot</span> all domain controllers <span style="color:#080;font-weight:bold">in</span> a <span style="color:#036;font-weight:bold">Microsoft</span> <span style="color:#036;font-weight:bold">Active</span> <span style="color:#036;font-weight:bold">Directory</span> environment
 
 ➜ ada help dns find_dcs
 <span style="color:#036;font-weight:bold">NAME</span>
@@ -124,24 +118,18 @@ COMMANDS
 
 <span style="color:#036;font-weight:bold">SYNOPSIS</span>
 
-    ada [global options] dns find_dcs [command options]
-
-
-
-
-<span style="color:#036;font-weight:bold">COMMAND</span> <span style="color:#036;font-weight:bold">OPTIONS</span>
-    -d, --domain=arg                    - <span style="color:#036;font-weight:bold">Active</span> <span style="color:#036;font-weight:bold">Directory</span> domain. (<span style="color:#606">default</span>: none)
-    -s, --nameserver, --name-server=arg - <span style="color:#036;font-weight:bold">The</span> <span style="color:#036;font-weight:bold">IP</span> address of the domain <span style="color:#036;font-weight:bold">DNS</span> server. If <span style="color:#080;font-weight:bold">not</span> provided uses your system <span style="color:#036;font-weight:bold">DNS</span>. (<span style="color:#606">default</span>: none)
+    ada [global options] dns find_dcs
 </code></pre>
 <h3><a href="#examples---short-and-long-syntax" aria-hidden="true" class="anchor" id="examples---short-and-long-syntax"></a>Examples - Short and long syntax</h3>
 <p>Short syntax:</p>
-<pre class="code plaintext"><code class="plaintext">$ ada dns find_dcs -d THM.local -s 10.10.25.54
+<pre class="code plaintext"><code class="plaintext">$ ada dns -d THM.local -s 10.10.25.54 find_dcs
 ADBASICS (adbasics.thm.local) - 10.10.25.54
 </code></pre>
 <p>Long syntax:</p>
-<pre class="code plaintext"><code class="plaintext">$ ada dns find_dcs --domain=THM.local --nameserver=10.10.25.54
+<pre class="code plaintext"><code class="plaintext">$ ada dns --domain=THM.local --nameserver=10.10.25.54 find_dcs
 ADBASICS (adbasics.thm.local) - 10.10.25.54
 </code></pre>
+<p>More examples and explanations on the <a href="https://noraj.github.io/ADAssault/yard/file.Commands.html">Commands</a> documentation page.</p>
 <h2><a href="#library" aria-hidden="true" class="anchor" id="library"></a>Library</h2>
 <p>See <a href="https://noraj.github.io/ADAssault/yard/ADAssault/">ADAssault</a>.</p>
 <h3><a href="#examples" aria-hidden="true" class="anchor" id="examples"></a>Examples</h3>
@@ -164,7 +152,7 @@ dcd.dcs
 </div></div>
 
       <div id="footer">
-  Generated on Mon Jul 29 20:39:53 2024 by
+  Generated on Wed Jul 31 20:00:15 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.3.0).
 </div>

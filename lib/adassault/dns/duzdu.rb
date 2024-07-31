@@ -12,7 +12,7 @@ module ADAssault
     #
     # On a misconfigured MS DNS zone, one can abuse dynamic updates to perform MiTM attacks in a very stealth way.
     #
-    # On a Windows server with the DNS role the `DSPROPERTY_ZONE_ALLOW_UPDATE` property defines whether dynamic updates are allowed. See [Microsoft - MS-DNSP - 2.3.2.1.1 Property Id](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dnsp/3af63871-0cc4-4179-916c-5caade55a8f3).
+    # On a Windows server with the DNS role, the `DSPROPERTY_ZONE_ALLOW_UPDATE` property defines whether dynamic updates are allowed. See [Microsoft - MS-DNSP - 2.3.2.1.1 Property Id](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dnsp/3af63871-0cc4-4179-916c-5caade55a8f3).
     # The possible values (`fAllowUpdate`) are (see [Microsoft - MS-DNSP - 2.2.5.2.4.1 DNS_RPC_ZONE_INFO_W2K](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dnsp/e8651544-0fbb-4038-8232-375ff2d8a55e)):
     #
     # - `0` (`ZONE_UPDATE_OFF`): No updates are allowed for the zone.
@@ -52,7 +52,7 @@ module ADAssault
       #
       # It will remove and recreate the record.
       #
-      # **Warning**: if several entries exist for the same record, they will all be repalced by the new value.
+      # **Warning**: if several entries exist for the same record, they will all be replaced by the new value.
       # @param name [String] DNS name, A record. The domain is automatically appended, e.g. `test` ➡️ `test.example.org`
       # @param ip [String] IP address
       # @return [TrueClass|FalseClass] `true` if the record was changed successfully
@@ -127,6 +127,31 @@ module ADAssault
         rescue Dnsruby::NXDomain # The requested domain does not exist
           ['']
         end
+      end
+
+      # Display a CLI-friendly output showing if the executed method was successful or not
+      # @param success [TrueClass|FalseClass] result of the command
+      # @param cmd [String] name of the executed command
+      # @return [nil]
+      def display(success, cmd)
+        # allowed_methods = DUZDU.public_instance_methods(false) - [:display]
+        # success = allowed_methods.include?(cmd.to_sym) ? send(cmd) : nil
+        message = if success
+                    Paint["✅ #{cmd} was executed successfully",
+                          'green']
+                  else
+                    Paint["❌ #{cmd} was unsuccessful", 'red']
+                  end
+        puts message
+      end
+
+      # Display a CLI-friendly output formating the DNS record with its FQDN and IP addresses.
+      # @param name [String] record name, e.g. the argument of {getv4}
+      # @param ips [Array<String>] list of IP addresses, e.g. the return value of {getv4}
+      # @return [nil]
+      def display_record(name, ips)
+        fqdn = "#{name}.#{@ad_domain}"
+        puts "#{Paint[fqdn, 'cyan']} - #{Paint[ips.join(', '), 'aquamarine']}"
       end
 
       protected

@@ -20,6 +20,7 @@
 - CLI and library
 - `DNS`
   - `find_dcs`: Find computer name, FQDN, and IP address(es) of all DCs
+  - `duzdu` (add, check, delete, get, replace): DNS unsecure zone dynamic update (DUZDU)
 
 ## Installation
 

@@ -103,7 +103,7 @@
   <div class="discussion">
     <p><strong>DNS unsecure zone dynamic update (DUZDU).</strong></p>
 <p>On a misconfigured MS DNS zone, one can abuse dynamic updates to perform MiTM attacks in a very stealth way.</p>
-<p>On a Windows server with the DNS role the <code>DSPROPERTY_ZONE_ALLOW_UPDATE</code> property defines whether dynamic updates are allowed. See <a href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dnsp/3af63871-0cc4-4179-916c-5caade55a8f3">Microsoft - MS-DNSP - 2.3.2.1.1 Property Id</a>.<br />
+<p>On a Windows server with the DNS role, the <code>DSPROPERTY_ZONE_ALLOW_UPDATE</code> property defines whether dynamic updates are allowed. See <a href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dnsp/3af63871-0cc4-4179-916c-5caade55a8f3">Microsoft - MS-DNSP - 2.3.2.1.1 Property Id</a>.<br />
 The possible values (<code>fAllowUpdate</code>) are (see <a href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-dnsp/e8651544-0fbb-4038-8232-375ff2d8a55e">Microsoft - MS-DNSP - 2.2.5.2.4.1 DNS_RPC_ZONE_INFO_W2K</a>):</p>
 <ul>
 <li><code>0</code> (<code>ZONE_UPDATE_OFF</code>): No updates are allowed for the zone.</li>
@@ -227,6 +227,52 @@ Of course it is also possible to check remotly by trying to create a record. (se
 
   
     <span class="summary_desc"><div class='inline'><p><strong>Remove a DNS A record (IPv4) via dynamic updates</strong>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#display-instance_method" title="#display (instance method)">#<strong>display</strong>(success, cmd)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output showing if the executed method was successful or not.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#display_record-instance_method" title="#display_record (instance method)">#<strong>display_record</strong>(name, ips)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Display a CLI-friendly output formating the DNS record with its FQDN and IP addresses.</p>
 </div></span>
   
 </li>
@@ -769,6 +815,228 @@ Of course it is also possible to check remotly by trying to create a record. (se
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="display-instance_method">
+  
+    #<strong>display</strong>(success, cmd)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display a CLI-friendly output showing if the executed method was successful or not</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>success</span>
+      
+      
+        <span class='type'>(<tt>TrueClass|FalseClass</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>result of the command</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>cmd</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>name of the executed command</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/duzdu.rb', line 136</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">display</span>(success, cmd)
+  <span style="color:#777"># allowed_methods = DUZDU.public_instance_methods(false) - [:display]</span>
+  <span style="color:#777"># success = allowed_methods.include?(cmd.to_sym) ? send(cmd) : nil</span>
+  message = <span style="color:#080;font-weight:bold">if</span> success
+              <span style="color:#036;font-weight:bold">Paint</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">✅ </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>cmd<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> was executed successfully</span><span style="color:#710">&quot;</span></span>,
+                    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">green</span><span style="color:#710">'</span></span>]
+            <span style="color:#080;font-weight:bold">else</span>
+              <span style="color:#036;font-weight:bold">Paint</span>[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">❌ </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>cmd<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> was unsuccessful</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">red</span><span style="color:#710">'</span></span>]
+            <span style="color:#080;font-weight:bold">end</span>
+  puts message
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="display_record-instance_method">
+  
+    #<strong>display_record</strong>(name, ips)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Display a CLI-friendly output formating the DNS record with its FQDN and IP addresses.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>record name, e.g. the argument of <span class='object_link'><a href="#getv4-instance_method" title="ADAssault::DNS::DUZDU#getv4 (method)">#getv4</a></span></p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ips</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>list of IP addresses, e.g. the return value of <span class='object_link'><a href="#getv4-instance_method" title="ADAssault::DNS::DUZDU#getv4 (method)">#getv4</a></span></p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><p>0.0.2</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154
+155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/duzdu.rb', line 152</span>
+
+<span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">display_record</span>(name, ips)
+  fqdn = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>name<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">.</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#33B">@ad_domain</span><span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
+  puts <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Paint</span>[fqdn, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">cyan</span><span style="color:#710">'</span></span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20"> - </span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#036;font-weight:bold">Paint</span>[ips.join(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">, </span><span style="color:#710">'</span></span>), <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">aquamarine</span><span style="color:#710">'</span></span>]<span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
+<span style="color:#080;font-weight:bold">end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="getv4-instance_method">
   
     #<strong>getv4</strong>(name)  &#x21d2; <tt>Array&lt;String&gt;</tt> 
@@ -890,7 +1158,7 @@ Of course it is also possible to check remotly by trying to create a record. (se
   <div class="discussion">
     <p><strong>Change the value of an existing DNS A record (IPv4) via dynamic updates</strong></p>
 <p>It will remove and recreate the record.</p>
-<p><strong>Warning</strong>: if several entries exist for the same record, they will all be repalced by the new value.</p>
+<p><strong>Warning</strong>: if several entries exist for the same record, they will all be replaced by the new value.</p>
 
 
   </div>
@@ -1000,7 +1268,7 @@ Of course it is also possible to check remotly by trying to create a record. (se
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 29 20:39:53 2024 by
+  Generated on Wed Jul 31 20:00:15 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.3.0).
 </div>
