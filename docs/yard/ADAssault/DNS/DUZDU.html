@@ -684,7 +684,12 @@ Of course it is also possible to check remotly by trying to create a record. (se
 112
 113
 114
-115</pre>
+115
+116
+117
+118
+119
+120</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/adassault/dns/duzdu.rb', line 102</span>
@@ -692,7 +697,12 @@ Of course it is also possible to check remotly by trying to create a record. (se
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">checkv4</span>
   networks = [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">10.0.0.0/8</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">172.16.0.0/12</span><span style="color:#710">'</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">192.168.0.0/16</span><span style="color:#710">'</span></span>].map { |x| <span style="color:#036;font-weight:bold">IPAddr</span>.new(x) }
   network = networks.sample
-  name = <span style="color:#036;font-weight:bold">Random</span>.uuid_v4
+  <span style="color:#080;font-weight:bold">begin</span>
+    name = <span style="color:#036;font-weight:bold">Random</span>.uuid_v4 <span style="color:#777"># Ruby 3.3+</span>
+  <span style="color:#080;font-weight:bold">rescue</span> <span style="color:#036;font-weight:bold">NoMethodError</span>
+    <span style="color:#777"># see https://github.com/ruby/securerandom/issues/31</span>
+    name = <span style="color:#036;font-weight:bold">Random</span>.uuid <span style="color:#777"># Ruby 3.2-</span>
+  <span style="color:#080;font-weight:bold">end</span>
   ip = <span style="color:#036;font-weight:bold">IPAddr</span>.new(rand(network.to_range.begin.succ.to_i..network.to_range.end.to_i - <span style="color:#00D">1</span>), network.family)
   created = addv4(name, ip)
   <span style="color:#777"># if created</span>
@@ -901,20 +911,20 @@ Of course it is also possible to check remotly by trying to create a record. (se
       <pre class="lines">
 
 
-136
-137
-138
-139
-140
 141
 142
 143
 144
 145
-146</pre>
+146
+147
+148
+149
+150
+151</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/adassault/dns/duzdu.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/duzdu.rb', line 141</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">display</span>(success, cmd)
   <span style="color:#777"># allowed_methods = DUZDU.public_instance_methods(false) - [:display]</span>
@@ -1019,13 +1029,13 @@ Of course it is also possible to check remotly by trying to create a record. (se
       <pre class="lines">
 
 
-152
-153
-154
-155</pre>
+157
+158
+159
+160</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/adassault/dns/duzdu.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/duzdu.rb', line 157</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">display_record</span>(name, ips)
   fqdn = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span>name<span style="font-weight:bold;color:#666">}</span></span><span style="color:#D20">.</span><span style="background-color:hsla(0,0%,0%,0.07);color:black"><span style="font-weight:bold;color:#666">#{</span><span style="color:#33B">@ad_domain</span><span style="font-weight:bold;color:#666">}</span></span><span style="color:#710">&quot;</span></span>
@@ -1120,17 +1130,17 @@ Of course it is also possible to check remotly by trying to create a record. (se
       <pre class="lines">
 
 
-123
-124
-125
-126
-127
 128
 129
-130</pre>
+130
+131
+132
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/adassault/dns/duzdu.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/adassault/dns/duzdu.rb', line 128</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">getv4</span>(name)
   <span style="color:#036;font-weight:bold">Dnsruby</span>::<span style="color:#036;font-weight:bold">DNS</span>.open(<span style="color:#33B">@dns_opts</span>) <span style="color:#080;font-weight:bold">do</span> |dns|
@@ -1268,7 +1278,7 @@ Of course it is also possible to check remotly by trying to create a record. (se
 </div>
 
       <div id="footer">
-  Generated on Thu Aug  1 01:02:55 2024 by
+  Generated on Thu Aug  1 03:03:12 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.3.0).
 </div>

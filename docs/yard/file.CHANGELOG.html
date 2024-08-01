@@ -59,6 +59,11 @@
 
       <div id="content"><div id='filecontents'><h1><a href="#changelog" aria-hidden="true" class="anchor" id="changelog"></a>Changelog</h1>
 <h2><a href="#unreleased" aria-hidden="true" class="anchor" id="unreleased"></a>[Unreleased]</h2>
+<h2><a href="#003" aria-hidden="true" class="anchor" id="003"></a>[0.0.3]</h2>
+<ul>
+<li>Temporarirlly add <code>base64</code> as a direct dependency while waiting for a new release of <code>dnsruby</code> in order to fix a warning. See Gemfile for details.</li>
+<li>Fix <code>undefined method 'uuid_v4' for Random:Class (NoMethodError)</code> for Ruby 3.0-3.2 when calling <code>ADAssault::DNS:DUZDU#checkv4</code> like in CLI sub-command <code>ada dns duzdu check</code>.</li>
+</ul>
 <h2><a href="#002" aria-hidden="true" class="anchor" id="002"></a>[0.0.2]</h2>
 <p>Library:</p>
 <ul>
@@ -80,7 +85,7 @@
 </div></div>
 
       <div id="footer">
-  Generated on Thu Aug  1 01:02:55 2024 by
+  Generated on Thu Aug  1 03:03:12 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.3.0).
 </div>
