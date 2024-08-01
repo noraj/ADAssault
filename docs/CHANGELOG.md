@@ -5,6 +5,7 @@
 ## [0.0.3]
 
 - Temporarirlly add `base64` as a direct dependency while waiting for a new release of `dnsruby` in order to fix a warning. See Gemfile for details.
+- Fix `undefined method 'uuid_v4' for Random:Class (NoMethodError)` for Ruby 3.0-3.2 when calling `ADAssault::DNS:DUZDU#checkv4` like in CLI sub-command `ada dns duzdu check`.
 
 ## [0.0.2]
 

@@ -102,7 +102,12 @@ module ADAssault
       def checkv4
         networks = ['10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16'].map { |x| IPAddr.new(x) }
         network = networks.sample
-        name = Random.uuid_v4
+        begin
+          name = Random.uuid_v4 # Ruby 3.3+
+        rescue NoMethodError
+          # see https://github.com/ruby/securerandom/issues/31
+          name = Random.uuid # Ruby 3.2-
+        end
         ip = IPAddr.new(rand(network.to_range.begin.succ.to_i..network.to_range.end.to_i - 1), network.family)
         created = addv4(name, ip)
         # if created
