@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+- Remove Ruby 3.0 support
+  - Runtime: 'random/formatter' for uuid requires Ruby 3.1+
+  - Dev: commonmarker requires Ruby 3.1+
+  - It's not really a breaking change since it has never been working in the first place
+  - As Ruby does some early loading, the requirement would fail even when you don't call the concerned piece of code
+
 ## [0.0.3]
 
 - Temporarily add `base64` as a direct dependency while waiting for a new release of `dnsruby` in order to fix a warning. See Gemfile for details.

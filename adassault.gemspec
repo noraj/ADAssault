@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
     'rubygems_mfa_required' => 'true'
   }
 
-  s.required_ruby_version = ['>= 3.0.0', '< 4.0']
+  s.required_ruby_version = ['>= 3.1.0', '< 4.0']
 
   s.add_runtime_dependency('base64', '~> 0.2.0') # tmp, see Gemfile
   s.add_runtime_dependency('dnsruby', '~> 1.72', '>= 1.72.1') # for DNS update (RFC 2136)

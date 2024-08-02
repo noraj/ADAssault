@@ -88,7 +88,7 @@ module ADAssault
             ress = dns.getresources fqdn, Resolv::DNS::Resource::IN::A
             short_name = fqdn[...-@ad_domain.size - 1].upcase
             h[short_name] = {
-              fqdn: fqdn,
+              fqdn:,
               ips: ress.map { |x| x.address.to_s }
             }
           end
