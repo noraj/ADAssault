@@ -7,7 +7,7 @@ gemspec
 
 # Needed for the CLI only
 group :runtime, :cli do
-  gem 'gli', '~> 2.21', '>= 2.21.1' # for argument parsing
+  gem 'gli', '~> 2.22' # for argument parsing
   gem 'paint', '~> 2.3' # for colorized ouput
 end
 
