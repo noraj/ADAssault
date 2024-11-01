@@ -53,7 +53,7 @@ GEM
     ruby-progressbar (1.13.0)
     simpleidn (0.2.3)
     unicode-display_width (2.6.0)
-    webrick (1.8.2)
+    webrick (1.9.0)
     yard-coderay (0.1.0)
       coderay
       yard
@@ -73,7 +73,7 @@ DEPENDENCIES
   gli (~> 2.22)
   paint (~> 2.3)
   rubocop (~> 1.68)
-  webrick (~> 1.8)
+  webrick (~> 1.9)
   yard!
   yard-coderay (~> 0.1)
 
