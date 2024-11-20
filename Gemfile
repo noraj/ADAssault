@@ -13,7 +13,7 @@ end
 
 # Needed for runtime (all cases: CLI & library)
 group :runtime, :all do
-  gem 'dnsruby', '~> 1.72', '>= 1.72.1' # for DNS update (RFC 2136)
+  gem 'dnsruby', '~> 1.72' # for DNS update (RFC 2136)
 
   # disable warning, waiting for a new version of dnsruby to be released https://github.com/alexdalitz/dnsruby/pull/198/files
   gem 'base64', '~> 0.2.0' # to remove when dnsruby 1.72.3 is out
