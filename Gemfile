@@ -31,7 +31,7 @@ end
 
 group :development, :docs do
   # Commonmarker 1.0 support https://github.com/lsegal/yard/issues/1528
-  gem 'commonmarker', '~> 1.1', '>= 1.1.5' # for markdown support in YARD
+  gem 'commonmarker', '~> 2.0' # for markdown support in YARD
   gem 'webrick', '~> 1.9' # web server for YARD
   # gem 'yard', ['>= 0.9.27', '< 0.10'] # lib documentation
   # https://github.com/lsegal/yard/issues/1528
