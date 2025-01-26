@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 
+- Add Ruby 3.4 support
 - Remove Ruby 3.0 support
   - Runtime: 'random/formatter' for uuid requires Ruby 3.1+
   - Dev: commonmarker requires Ruby 3.1+
