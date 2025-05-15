@@ -65,4 +65,4 @@ $ ada dns --domain=THM.local --nameserver=10.10.64.16 duzdu add 'srvdatabase' '1
 
 It's all the same logic for other actions: `delete`, `replace` or `get` (execute `ada help dns duzdu` to get an overview). As a reminder, warnings and underneath behaviors are documented on the [class documentation][duzdu-class].
 
-[duzdu-class]:(https://noraj.github.io/ADAssault/yard/ADAssault/DNS/DUZDU)
+[duzdu-class]:https://noraj.github.io/ADAssault/yard/ADAssault/DNS/DUZDU
