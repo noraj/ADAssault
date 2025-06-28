@@ -108,7 +108,7 @@ module ADAssault
           # see https://github.com/ruby/securerandom/issues/31
           name = Random.uuid # Ruby 3.2-
         end
-        ip = IPAddr.new(rand(network.to_range.begin.succ.to_i..network.to_range.end.to_i - 1), network.family)
+        ip = IPAddr.new(rand(network.to_range.begin.succ.to_i..(network.to_range.end.to_i - 1)), network.family)
         created = addv4(name, ip)
         # if created
         #   deletev4(name)

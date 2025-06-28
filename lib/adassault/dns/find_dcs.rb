@@ -57,7 +57,7 @@ module ADAssault
       #   # => ["THMDC"]
       # @since 0.0.1
       def dc_name
-        dc_fqdn.map { |x| x[...-@ad_domain.size - 1] }
+        dc_fqdn.map { |x| x[...(-@ad_domain.size - 1)] }
       end
 
       # Get DC(s) IP address name directly from the DNS server.
@@ -86,7 +86,7 @@ module ADAssault
         dc_fqdn.each do |fqdn|
           Resolv::DNS.open(@dns_opts) do |dns|
             ress = dns.getresources fqdn, Resolv::DNS::Resource::IN::A
-            short_name = fqdn[...-@ad_domain.size - 1].upcase
+            short_name = fqdn[...(-@ad_domain.size - 1)].upcase
             h[short_name] = {
               fqdn:,
               ips: ress.map { |x| x.address.to_s }
