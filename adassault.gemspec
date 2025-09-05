@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = ['>= 3.1.0', '< 4.0']
 
-  s.add_runtime_dependency('base64', '~> 0.2.0') # tmp, see Gemfile
+  s.add_runtime_dependency('base64', '>= 0.2', '< 0.4') # tmp, see Gemfile
   s.add_runtime_dependency('dnsruby', '~> 1.72', '>= 1.72.1') # for DNS update (RFC 2136)
   s.add_runtime_dependency('gli', '~> 2.21') # for argument parsing
   s.add_runtime_dependency('paint', '~> 2.3') # for colorized output
