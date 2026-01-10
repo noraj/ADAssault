@@ -703,7 +703,7 @@ Of course it is also possible to check remotly by trying to create a record. (se
     <span style="color:#777"># see https://github.com/ruby/securerandom/issues/31</span>
     name = <span style="color:#036;font-weight:bold">Random</span>.uuid <span style="color:#777"># Ruby 3.2-</span>
   <span style="color:#080;font-weight:bold">end</span>
-  ip = <span style="color:#036;font-weight:bold">IPAddr</span>.new(rand(network.to_range.begin.succ.to_i..network.to_range.end.to_i - <span style="color:#00D">1</span>), network.family)
+  ip = <span style="color:#036;font-weight:bold">IPAddr</span>.new(rand(network.to_range.begin.succ.to_i..(network.to_range.end.to_i - <span style="color:#00D">1</span>)), network.family)
   created = addv4(name, ip)
   <span style="color:#777"># if created</span>
   <span style="color:#777">#   deletev4(name)</span>
@@ -1278,9 +1278,9 @@ Of course it is also possible to check remotly by trying to create a record. (se
 </div>
 
       <div id="footer">
-  Generated on Thu Aug  1 03:03:12 2024 by
+  Generated on Sat Jan 10 22:45:07 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.0).
+  0.9.36 (ruby-4.0.0).
 </div>
 
     </div>

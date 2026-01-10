@@ -2,5 +2,5 @@
 
 module ADAssault
   # Version of ADAssault library and app
-  VERSION = '0.0.3'
+  VERSION = '0.0.4'
 end

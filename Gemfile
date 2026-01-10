@@ -14,14 +14,11 @@ end
 # Needed for runtime (all cases: CLI & library)
 group :runtime, :all do
   gem 'dnsruby', '~> 1.73' # for DNS update (RFC 2136)
-
-  # disable warning, waiting for a new version of dnsruby to be released https://github.com/alexdalitz/dnsruby/pull/198/files
-  gem 'base64', '~> 0.3.0' # to remove when dnsruby 1.72.3 is out
 end
 
 # Needed to install dependencies
 group :development, :install do
-  gem 'bundler', '~> 2.5'
+  gem 'bundler', '~> 4.0'
 end
 
 # Needed for linting
@@ -30,8 +27,10 @@ group :development, :lint do
 end
 
 group :development, :docs do
-  # Commonmarker 1.0 support https://github.com/lsegal/yard/issues/1528
-  gem 'commonmarker', '~> 2.0' # for markdown support in YARD
+  gem 'commonmarker', '~> 2.6', '>= 2.6.1' # for markdown support in YARD
+  gem 'irb' # https://github.com/lsegal/yard/issues/1636
+  gem 'logger' # https://github.com/lsegal/yard/issues/1636
+  gem 'ostruct' # https://github.com/lsegal/yard/issues/1636
   gem 'webrick', '~> 1.9' # web server for YARD
   # gem 'yard', ['>= 0.9.27', '< 0.10'] # lib documentation
   # https://github.com/lsegal/yard/issues/1528

@@ -823,7 +823,7 @@ Call <span class='object_link'><a href="#dc_fqdn-instance_method" title="ADAssau
       <pre class="code"><span class="info file"># File 'lib/adassault/dns/find_dcs.rb', line 59</span>
 
 <span style="color:#080;font-weight:bold">def</span> <span style="color:#06B;font-weight:bold">dc_name</span>
-  dc_fqdn.map { |x| x[...-<span style="color:#33B">@ad_domain</span>.size - <span style="color:#00D">1</span>] }
+  dc_fqdn.map { |x| x[...(-<span style="color:#33B">@ad_domain</span>.size - <span style="color:#00D">1</span>)] }
 <span style="color:#080;font-weight:bold">end</span></pre>
     </td>
   </tr>
@@ -1064,9 +1064,9 @@ This method is called while instantiating the class and teh result stored in <co
   dc_fqdn.each <span style="color:#080;font-weight:bold">do</span> |fqdn|
     <span style="color:#036;font-weight:bold">Resolv</span>::<span style="color:#036;font-weight:bold">DNS</span>.open(<span style="color:#33B">@dns_opts</span>) <span style="color:#080;font-weight:bold">do</span> |dns|
       ress = dns.getresources fqdn, <span style="color:#036;font-weight:bold">Resolv</span>::<span style="color:#036;font-weight:bold">DNS</span>::<span style="color:#036;font-weight:bold">Resource</span>::<span style="color:#036;font-weight:bold">IN</span>::<span style="color:#036;font-weight:bold">A</span>
-      short_name = fqdn[...-<span style="color:#33B">@ad_domain</span>.size - <span style="color:#00D">1</span>].upcase
+      short_name = fqdn[...(-<span style="color:#33B">@ad_domain</span>.size - <span style="color:#00D">1</span>)].upcase
       h[short_name] = {
-        <span style="color:#606">fqdn</span>: fqdn,
+        <span style="color:#606">fqdn</span>:,
         <span style="color:#606">ips</span>: ress.map { |x| x.address.to_s }
       }
     <span style="color:#080;font-weight:bold">end</span>
@@ -1083,9 +1083,9 @@ This method is called while instantiating the class and teh result stored in <co
 </div>
 
       <div id="footer">
-  Generated on Thu Aug  1 03:03:12 2024 by
+  Generated on Sat Jan 10 22:45:07 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.3.0).
+  0.9.36 (ruby-4.0.0).
 </div>
 
     </div>

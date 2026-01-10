@@ -1,13 +1,12 @@
 # Changelog
 
-## [Unreleased]
+## [0.0.4]
 
-- Add Ruby 3.4 support
-- Remove Ruby 3.0 support
-  - Runtime: 'random/formatter' for uuid requires Ruby 3.1+
-  - Dev: commonmarker requires Ruby 3.1+
-  - It's not really a breaking change since it has never been working in the first place
-  - As Ruby does some early loading, the requirement would fail even when you don't call the concerned piece of code
+- **Breaking changes**:
+  - Remove Ruby 3.0 & 3.1 support
+- Chore:
+  - Add Ruby 3.4 & 4.0 support
+  - Update dependencies
 
 ## [0.0.3]
 
