@@ -79,7 +79,7 @@ GEM
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
     webrick (1.9.2)
-    yard (0.9.43)
+    yard (0.9.44)
     yard-coderay (0.1.0)
       coderay
       yard
