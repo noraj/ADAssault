@@ -13,7 +13,7 @@ end
 
 # Needed for runtime (all cases: CLI & library)
 group :runtime, :all do
-  gem 'dnsruby', '~> 1.73' # for DNS update (RFC 2136)
+  gem 'dnsruby', '~> 1.74' # for DNS update (RFC 2136)
 end
 
 # Needed to install dependencies
